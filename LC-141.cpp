@@ -5,7 +5,7 @@ struct ListNode {
     ListNode *next;
     ListNode(int x) : val(x), next(NULL) {}
 };
-
+// using slow pointer and fast pointer concept 
 bool hasCycle(ListNode *head) {
     ListNode* slow = head;
     ListNode* fast = head;
