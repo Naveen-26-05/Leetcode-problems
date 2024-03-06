@@ -7,7 +7,7 @@ int minimumLength(string s) {
     char prev_pref = '-';
     char prev_suf = '-';
     
-    while (i < j) {
+    while (i < j) {                                     // O(n)
         if (prev_pref == s[i] || prev_suf == s[j]) {
             if (prev_pref == s[i]) {
                 prev_pref = s[i];
@@ -50,3 +50,4 @@ int main() {
 
     return 0;
 }
+
