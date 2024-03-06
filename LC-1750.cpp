@@ -4,26 +4,23 @@ using namespace std;
 
 int minimumLength(string s) {
     int i = 0, j = s.size() - 1;
-    char prev_pref = '-';
-    char prev_suf = '-';
-    
+    char hist = '-';
     while (i < j) {                                     // O(n)
-        if (prev_pref == s[i] || prev_suf == s[j]) {
-            if (prev_pref == s[i]) {
-                prev_pref = s[i];
+        if ( hist == s[j]) {
+            if (hist == s[i]) {
+                hist = s[i];
                 s[i] = '-';
                 i++;
             }
-            if (prev_suf == s[j]) {
-                prev_suf = s[j];
+            if (hist == s[j]) {
+                hist = s[j];
                 s[j] = '-';
                 j--;
             }
             continue;
         }
         if (s[i] == s[j]) {
-            prev_pref = s[i];
-            prev_suf = s[j];
+            hist = s[i];
             s[i] = '-';
             s[j] = '-';
             j--;
@@ -33,7 +30,7 @@ int minimumLength(string s) {
         }
     }
     if (i == j) {
-        if (prev_pref == s[i] || prev_suf == s[j]) {
+        if (hist == s[i] || hist == s[j]) {
             return 0;
         }
     }
